@@ -1,0 +1,401 @@
+[
+  "stats",
+  [
+    {
+      "Id": "ab14fc7eea27fe6ad2d657eaeca04825fc24dafb7245bc337026732727d39616",
+      "Info": {
+        "Id": "ab14fc7eea27fe6ad2d657eaeca04825fc24dafb7245bc337026732727d39616",
+        "Names": [
+          "/crows-nest"
+        ],
+        "Image": "dahyphenn/crows-nest:latest",
+        "ImageID": "sha256:5e7c54f1b9bec46e1236f13857c481193b0b96849ac931d6d227477352fd27b6",
+        "Command": "nodemon server.js",
+        "Created": 1503712752,
+        "Ports": [
+          {
+            "IP": "0.0.0.0",
+            "PrivatePort": 3000,
+            "PublicPort": 3000,
+            "Type": "tcp"
+          }
+        ],
+        "Labels": {},
+        "State": "running",
+        "Status": "Up About an hour",
+        "HostConfig": {
+          "NetworkMode": "default"
+        },
+        "NetworkSettings": {
+          "Networks": {
+            "bridge": {
+              "IPAMConfig": null,
+              "Links": null,
+              "Aliases": null,
+              "NetworkID": "1cb12bd5e5d305d3a53bcf084f8d60078ac75e8f546048b567eb21e71292325f",
+              "EndpointID": "f5bd9bd25b340c20655b6f5e3520a3edf3b1e2df94296ddffe559a888f9eff7b",
+              "Gateway": "172.17.0.1",
+              "IPAddress": "172.17.0.2",
+              "IPPrefixLen": 16,
+              "IPv6Gateway": "",
+              "GlobalIPv6Address": "",
+              "GlobalIPv6PrefixLen": 0,
+              "MacAddress": "02:42:ac:11:00:02",
+              "DriverOpts": null
+            }
+          }
+        },
+        "Mounts": [
+          {
+            "Type": "bind",
+            "Source": "/home/dan/Code/da-n/crows-nest/src",
+            "Destination": "/opt/src",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/lib/docker",
+            "Destination": "/var/lib/docker",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          },
+          {
+            "Type": "bind",
+            "Source": "/var/run/docker.sock",
+            "Destination": "/var/run/docker.sock",
+            "Mode": "ro",
+            "RW": false,
+            "Propagation": "rprivate"
+          }
+        ]
+      },
+      "Stats": {
+        "read": "2017-08-26T02:48:31.574428978Z",
+        "preread": "2017-08-26T02:48:30.608337294Z",
+        "pids_stats": {
+          "current": 49
+        },
+        "blkio_stats": {
+          "io_service_bytes_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 2703360
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 2703360
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 2703360
+            }
+          ],
+          "io_serviced_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 229
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 229
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 229
+            }
+          ],
+          "io_queue_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 0
+            }
+          ],
+          "io_service_time_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 149779796
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 149779796
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 149779796
+            }
+          ],
+          "io_wait_time_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 121762364
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 121762364
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 121762364
+            }
+          ],
+          "io_merged_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Read",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Write",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Sync",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Async",
+              "value": 0
+            },
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "Total",
+              "value": 0
+            }
+          ],
+          "io_time_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "",
+              "value": 711952631
+            }
+          ],
+          "sectors_recursive": [
+            {
+              "major": 8,
+              "minor": 0,
+              "op": "",
+              "value": 5280
+            }
+          ]
+        },
+        "num_procs": 0,
+        "storage_stats": {},
+        "cpu_stats": {
+          "cpu_usage": {
+            "total_usage": 45682142350,
+            "percpu_usage": [
+              10147691866,
+              9843653665,
+              14055558848,
+              11635237971,
+              0,
+              0,
+              0,
+              0
+            ],
+            "usage_in_kernelmode": 3660000000,
+            "usage_in_usermode": 41500000000
+          },
+          "system_cpu_usage": 331587590000000,
+          "online_cpus": 4,
+          "throttling_data": {
+            "periods": 0,
+            "throttled_periods": 0,
+            "throttled_time": 0
+          }
+        },
+        "precpu_stats": {
+          "cpu_usage": {
+            "total_usage": 45657946919,
+            "percpu_usage": [
+              10141080956,
+              9843056961,
+              14041041895,
+              11632767107,
+              0,
+              0,
+              0,
+              0
+            ],
+            "usage_in_kernelmode": 3660000000,
+            "usage_in_usermode": 41470000000
+          },
+          "system_cpu_usage": 331583720000000,
+          "online_cpus": 4,
+          "throttling_data": {
+            "periods": 0,
+            "throttled_periods": 0,
+            "throttled_time": 0
+          }
+        },
+        "memory_stats": {
+          "usage": 79593472,
+          "max_usage": 82673664,
+          "stats": {
+            "active_anon": 59777024,
+            "active_file": 1867776,
+            "cache": 2703360,
+            "dirty": 0,
+            "hierarchical_memory_limit": 9223372036854772000,
+            "hierarchical_memsw_limit": 9223372036854772000,
+            "inactive_anon": 12558336,
+            "inactive_file": 835584,
+            "mapped_file": 0,
+            "pgfault": 941197,
+            "pgmajfault": 11,
+            "pgpgin": 886192,
+            "pgpgout": 867872,
+            "rss": 72335360,
+            "rss_huge": 0,
+            "shmem": 0,
+            "swap": 0,
+            "total_active_anon": 59777024,
+            "total_active_file": 1867776,
+            "total_cache": 2703360,
+            "total_dirty": 0,
+            "total_inactive_anon": 12558336,
+            "total_inactive_file": 835584,
+            "total_mapped_file": 0,
+            "total_pgfault": 941197,
+            "total_pgmajfault": 11,
+            "total_pgpgin": 886192,
+            "total_pgpgout": 867872,
+            "total_rss": 72335360,
+            "total_rss_huge": 0,
+            "total_shmem": 0,
+            "total_swap": 0,
+            "total_unevictable": 0,
+            "total_writeback": 0,
+            "unevictable": 0,
+            "writeback": 0
+          },
+          "limit": 8273063936
+        },
+        "name": "/crows-nest",
+        "id": "ab14fc7eea27fe6ad2d657eaeca04825fc24dafb7245bc337026732727d39616",
+        "networks": {
+          "eth0": {
+            "rx_bytes": 466079,
+            "rx_packets": 4535,
+            "rx_errors": 0,
+            "rx_dropped": 0,
+            "tx_bytes": 4070892,
+            "tx_packets": 3603,
+            "tx_errors": 0,
+            "tx_dropped": 0
+          }
+        }
+      }
+    }
+  ]
+]

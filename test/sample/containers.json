@@ -1,0 +1,710 @@
+[
+  {
+    "Id": "32511b481697c04569612a1e3c0f744fbff6c74dc9ad5b4cf77cc8668499207f",
+    "Names": [
+      "/crows-nest"
+    ],
+    "Image": "dahyphenn/crows-nest:latest",
+    "ImageID": "sha256:5e7c54f1b9bec46e1236f13857c481193b0b96849ac931d6d227477352fd27b6",
+    "Command": "nodemon server.js",
+    "Created": 1503678564,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3000,
+        "PublicPort": 3000,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {},
+    "State": "running",
+    "Status": "Up 27 minutes",
+    "HostConfig": {
+      "NetworkMode": "default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "bridge": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "1cb12bd5e5d305d3a53bcf084f8d60078ac75e8f546048b567eb21e71292325f",
+          "EndpointID": "161abdd98552054844dd91ee902475704f1a983eae9da1d9b9b1ecc522ed718d",
+          "Gateway": "172.17.0.1",
+          "IPAddress": "172.17.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:11:00:02",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/var/lib/docker",
+        "Destination": "/var/lib/docker",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/var/run/docker.sock",
+        "Destination": "/var/run/docker.sock",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/da-n/crows-nest/src",
+        "Destination": "/opt/src",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "830c72f8b07e3253025037e16708b310b642646b39ccd956e7d7de5613c09f41",
+    "Names": [
+      "/localdevdengrocom_queue_1"
+    ],
+    "Image": "localdevdengrocom_queue",
+    "ImageID": "sha256:a49b6cf8bfa309ff3435b31f456d951af773f01e6d375b6750bd30016626864e",
+    "Command": "docker-php-entrypoint php artisan queue:listen --tries=3",
+    "Created": 1503656051,
+    "Ports": [
+      {
+        "PrivatePort": 9000,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "b7feef21fa9fbce2b6dea45d2fa79ee169732ef9c23350b3c2fb2200c7656aee",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "queue",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 3 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "b8630257e549c90ebefc5d4721f228b4e697fc30b7cdefbc1bbee2c5d2a4d31e",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.11",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:0b",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/docker/containers/php/uploads.ini",
+        "Destination": "/usr/local/etc/php/conf.d/uploads.ini",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/application",
+        "Destination": "/code",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "6c786cb04214476d47e65a6e4c5bf81ee3c9ac64653acf59faa127baf75ee41f",
+    "Names": [
+      "/localdevdengrocom_nginx_1"
+    ],
+    "Image": "nginx:latest",
+    "ImageID": "sha256:e4e6d42c70b3f79c5d57c170526592168992eb3303a6594c439302fabd92d9a3",
+    "Command": "nginx -g 'daemon off;'",
+    "Created": 1503656051,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 80,
+        "PublicPort": 80,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "ee26ff5c675e1fa4cba902d8c4dd85a86064a305d3982aca7083c67187358bd6",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "nginx",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "03bdb651d735ede93796c023ad10b2993de5cbd96922fed0713c7c541ce3db5b",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.10",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:0a",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/application",
+        "Destination": "/code",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/docker/containers/nginx/site.conf",
+        "Destination": "/etc/nginx/conf.d/site.conf",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "eae274acd27a827d9040f08c4f31f760061e998553ca2137b3e254235e851814",
+    "Names": [
+      "/localdevdengrocom_php_1"
+    ],
+    "Image": "localdevdengrocom_php",
+    "ImageID": "sha256:a49b6cf8bfa309ff3435b31f456d951af773f01e6d375b6750bd30016626864e",
+    "Command": "docker-php-entrypoint php-fpm",
+    "Created": 1503656050,
+    "Ports": [
+      {
+        "PrivatePort": 9000,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "7b2785b1b1cc16855db279d16a54fc06b1ea52912962f395bc6f551ca6ff84dc",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "php",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "c9105ae45734d809e4fde0654a34a38dcf56085e3514f71ac5e60c01551c92e6",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.9",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:09",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/docker/containers/php/uploads.ini",
+        "Destination": "/usr/local/etc/php/conf.d/uploads.ini",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/application",
+        "Destination": "/code",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "efcfe95244c6485704804de3567d817c7f4f356a4017c09f53ebd69a553d32e0",
+    "Names": [
+      "/localdevdengrocom_redisadmin_1"
+    ],
+    "Image": "actency/docker-phpredisadmin",
+    "ImageID": "sha256:dadd94a451195e4eef7ec616b05a7a0b4076737f0674ba619b79e2f2b0c7201d",
+    "Command": "php -S 0.0.0.0:80",
+    "Created": 1503656047,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 80,
+        "PublicPort": 9900,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "2e7fcba745f3d64ba0ed1a027ef511edfa0efbcc0b569e4b09c0fee60b13859e",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "redisadmin",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "4d004b325b1191de59795679e47718e11aa6bcacc81d333a2f8ceac536c997e4",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.8",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:08",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "85ee8348eaeab90d6da6d6459c22dc6883f5e72701747c54628fc47e241b5311",
+        "Source": "/var/lib/docker/volumes/85ee8348eaeab90d6da6d6459c22dc6883f5e72701747c54628fc47e241b5311/_data",
+        "Destination": "/app",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  },
+  {
+    "Id": "f3de4cfa1e3c64624991e97d83242c625d1adcf710e2623a0f51506f3a001f64",
+    "Names": [
+      "/localdevdengrocom_mailhog_1"
+    ],
+    "Image": "localdevdengrocom_mailhog",
+    "ImageID": "sha256:12e73a7e0a5f4e832366d3ff1ca3d5ec9d696bb4af2adf9335b10b7b76a9d4b7",
+    "Command": "MailHog",
+    "Created": 1503656047,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 8025,
+        "PublicPort": 8025,
+        "Type": "tcp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 1025,
+        "PublicPort": 1025,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "d0a1e9163d1a33331ceec561cf366b9f0dad5c7d28bbf0268937a19b19a2d779",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "mailhog",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "68878ccca8d353bceca857bf0e0f7f542354ad6bcbc18833728149874509b118",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.7",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:07",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": []
+  },
+  {
+    "Id": "5dc7c927f5d777729b2fbf8b1745ed168766299c58adeb2db4873729dee49c39",
+    "Names": [
+      "/localdevdengrocom_webhook-test_1"
+    ],
+    "Image": "dahyphenn/webhook.site",
+    "ImageID": "sha256:cf7e854021fe74154f31558c1ed49fd1e9274f12943979a840fccf3ae661e68c",
+    "Command": "docker-php-entrypoint /usr/local/bin/entrypoint.sh",
+    "Created": 1503656047,
+    "Ports": [
+      {
+        "PrivatePort": 9000,
+        "Type": "tcp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 80,
+        "PublicPort": 9020,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "09aef71f19052710648f024864c11d4898a739ecbdb5b1d24eee69da6c6e09ac",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "webhook-test",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "f2f61b49d8fe3421d8bcfebd894d5077045417fa61f4009da8d4b501bb89d9b8",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.6",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:06",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com/.env",
+        "Destination": "/opt/app/.env",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "f46800ab929d0f17950a5adfd38f71051a812affa693ac55abf87ba76314c428",
+    "Names": [
+      "/localdevdengrocom_mailhog-mongodb_1"
+    ],
+    "Image": "mongo",
+    "ImageID": "sha256:57c67caab3d8f9ed1fbffe159b10be52e0a0610122c16b3efea50a90ff435584",
+    "Command": "docker-entrypoint.sh mongod",
+    "Created": 1503656042,
+    "Ports": [
+      {
+        "PrivatePort": 27017,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "dc991ee2b21f0060e33fa408376fed6a5c0d8d87718629d8e6dbceb198c5ae9e",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "mailhog-mongodb",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "1e90638c8eae6a3278f1c1def5a121333c94eadcf2b8300f5bd7dd6ebff4e4bb",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.5",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:05",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "localdevdengrocom_mailhog-mongodb-data-volume",
+        "Source": "/var/lib/docker/volumes/localdevdengrocom_mailhog-mongodb-data-volume/_data",
+        "Destination": "/data/db",
+        "Driver": "local",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": ""
+      },
+      {
+        "Type": "volume",
+        "Name": "a6dedc5d7384004bc95c0c13ad9c163e8277275a2e3aa05a229479b2ee911e31",
+        "Source": "/var/lib/docker/volumes/a6dedc5d7384004bc95c0c13ad9c163e8277275a2e3aa05a229479b2ee911e31/_data",
+        "Destination": "/data/configdb",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  },
+  {
+    "Id": "9b081097fcfb1315d0c82d7f205bab6b40e6f6dd6c72b465b21a1937314c7439",
+    "Names": [
+      "/localdevdengrocom_gulp_1"
+    ],
+    "Image": "localdevdengrocom_gulp",
+    "ImageID": "sha256:4b8b101b87d7bd702c5dc6031a3ad80afce5bef67bdf117bae91faa418bf1875",
+    "Command": "bash",
+    "Created": 1503656042,
+    "Ports": [
+      {
+        "PrivatePort": 3001,
+        "Type": "tcp"
+      },
+      {
+        "PrivatePort": 3000,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "9b62e5c54d5b853b218ac7a12da0effd457d96b6d31066d88d3b465f7c47f970",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "gulp",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "c0dd340c6fd67bb4d696379c7004fe6d1bd8e0a8adf2a71747a9d24901694c53",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.4",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:04",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/dan/Code/dengro/local.dev.dengro.com",
+        "Destination": "/data",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "155ec4abb0760218c15f9d35cbd74b54b9ec2634b6d19b2ec000a215b150762d",
+    "Names": [
+      "/localdevdengrocom_redis_1"
+    ],
+    "Image": "redis",
+    "ImageID": "sha256:a1b99da73d055b844d483b1dd814b7b882c6cb4551e5de8ef165bbbf9a96cdb0",
+    "Command": "docker-entrypoint.sh redis-server --appendonly yes",
+    "Created": 1503656042,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 6379,
+        "PublicPort": 6379,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "cc3b0c9fd7308412f18dd4ed44401958da9cde1b7238368288ec3d8daa431caa",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "redis",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "2ae1131cc4dd5a4c6d9ca69754331e2b1a494de973dd1b5e8625ea37b6ef8b5e",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:03",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "localdevdengrocom_redis-data-volume",
+        "Source": "/var/lib/docker/volumes/localdevdengrocom_redis-data-volume/_data",
+        "Destination": "/data",
+        "Driver": "local",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  },
+  {
+    "Id": "c5f765010aa38a22faba4aec410e3431e1ce85efa13600668c4377168e7fce02",
+    "Names": [
+      "/localdevdengrocom_mysql_1"
+    ],
+    "Image": "mysql",
+    "ImageID": "sha256:44a8e1a5c0b27650237907f4e9ee7fccdba0120291d27075e2cb8c8e8a8ec66b",
+    "Command": "docker-entrypoint.sh mysqld",
+    "Created": 1503656042,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3306,
+        "PublicPort": 3306,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "b3a0c6099a84120135a66076858ba27d1b3cd91b9a233bc3950ccc75158e24dc",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "localdevdengrocom",
+      "com.docker.compose.service": "mysql",
+      "com.docker.compose.version": "1.15.0"
+    },
+    "State": "running",
+    "Status": "Up 7 hours",
+    "HostConfig": {
+      "NetworkMode": "localdevdengrocom_default"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "localdevdengrocom_default": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0810c4fb8fc5462b018430c9402b2e5a37c2b36bcb690f0f2a6327f5c1442e88",
+          "EndpointID": "6e908b751391791bc4949174beb7faf11d11a6631aa695b4fd48cd5f9abc289c",
+          "Gateway": "172.18.0.1",
+          "IPAddress": "172.18.0.2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:12:00:02",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "localdevdengrocom_mysql-data-volume",
+        "Source": "/var/lib/docker/volumes/localdevdengrocom_mysql-data-volume/_data",
+        "Destination": "/var/lib/mysql",
+        "Driver": "local",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  }
+]

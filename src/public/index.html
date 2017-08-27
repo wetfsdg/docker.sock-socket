@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>docker.sock socket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <style>
+        .ellipsis {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid pt-4 pb-4">
+        <div class="container">
+            <h1 class="display-4 mb-0">docker.sock socket</h1>
+            <p class="mb-0 text-muted">Realtime docker.sock container stats powered by socket.io.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="containers">
+            <div class="row">
+                <container
+                    v-for="container in containers"
+                    v-bind:container="container"
+                    v-bind:key="container.Id">
+                </container>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var socket = io.connect();
+
+        Vue.component('container', {
+            props: ['container'],
+            template:
+                '<div class="col-sm-12 col-lg-6">' +
+                    '<div class="card mb-4">' +
+                        '<div class="card-header">' +
+                            '<h3 class="card-title ellipsis mb-1" v-bind:title="formattedName">{{ formattedName }}</h3>' +
+                            '<p class="card-subtitle mb-0 text-muted ellipsis" v-bind:title="container.Id"><small>{{ container.Id }}</small></p>' +
+                        '</div>' +
+                        '<div class="card-body">' +
+                            '<ul class="list-unstyled mb-0">' +
+                                '<li>Status: {{ container.Info.Status }}</li>' +
+                                '<li>Image: {{ container.Info.Image }}</li>' +
+                                '<li>Command: <code class="ellipsis" v-bind:title="container.Info.Command">{{ container.Info.Command }}</code></li>' +
+                                '<li>Memory: {{ Memory }} ({{ MemoryMax }} max)</li>' +
+                                '<li>CPU: {{ Cpu }}%</li>' +
+                            '</ul>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>',
+            computed: {
+                formattedName: function() {
+                    return this.container.Info.Names[0].replace(/\//g, '');
+                },
+                Id: function() {
+                    return this.container.Id;
+                },
+                Image: function() {
+                    return this.container.Info.Image;
+                },
+                Memory: function() {
+                    return bytesToSize(this.container.Stats.memory_stats.usage);
+                },
+                MemoryMax: function() {
+                    return bytesToSize(this.container.Stats.memory_stats.max_usage);
+                },
+                Cpu: function() {
+                    return cpuPercentage(this.container.Stats);
+                }
+            },
+        });
+
+        var containers = new Vue({
+            el: '#containers',
+            data: {
+                containers: [],
+            },
+            mounted: function() {
+                socket.on('containers', function(data) {
+                    this.containers = data;
+                }.bind(this));
+            }
+        });
+
+        function bytesToSize(bytes) {
+            var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            if (bytes == 0) return '0 Byte';
+            var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+            return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+        };
+
+        function cpuPercentage(res) {
+            var cpuDelta = res.cpu_stats.cpu_usage.total_usage - res.precpu_stats.cpu_usage.total_usage;
+            var systemDelta = res.cpu_stats.system_cpu_usage - res.precpu_stats.system_cpu_usage;
+            var percentage = cpuDelta / systemDelta * 100;
+            return percentage.toFixed(2);
+        }
+    </script>
+</body>
+</html>
